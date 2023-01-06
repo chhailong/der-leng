@@ -1,0 +1,144 @@
+
+  /* ================================ */
+
+
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    padding: 0px 10%;
+    background-color: #ED9D0B;
+    justify-content: space-between;
+ 
+}
+
+.navbar .search input {
+
+  flex-wrap: wrap;
+  width: 200px;
+}
+
+.logo{
+
+  margin-left:30px;
+  font-size: 20px;
+  color: #FFF;
+  font-weight: 900;
+}
+nav ul{
+
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li{
+
+    margin-left: 5px;
+    margin-right: 5px;
+}
+nav ul li a{
+
+    color: #FFF;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 1px;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: #2a3bd5;
+}
+
+.cta{
+  border-radius: 10px;
+    background-color: #DC7633;
+    color: #FFF;
+}
+
+
+.cta:hover{
+    background-color: #2a3bd5;
+    color: #FFF;
+}
+a{
+ 
+  text-decoration: none;
+}
+
+li{
+  list-style-type: none;
+}
+
+
+/* css use for menu  */
+.menu{
+ 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 10%;
+  background-color: #272728;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+
+
+
+/**
+ * Responsive styles
+ */
+ @media only screen and (max-width: 550px) {
+
+  nav .menu-above {
+    flex-direction: row;
+  }
+  nav .menu-botton {
+    flex-direction: row ;
+  }
+
+
+
+
+
+  .navbar nav .main-menu {
+    flex-direction: row;
+  }
+}
+
+/* =================Test drop down button ================*/
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
