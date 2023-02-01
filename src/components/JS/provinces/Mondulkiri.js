@@ -2,9 +2,12 @@ import React from "react";
 function Mondulkiri(){
     return(
         <>
+
+               
             <h1> Welcome to Mondulkiri province </h1>
-            <p>Hello Mondulkiri travelling</p>
+            <p>Hello Mondulkiri travelling </p>
         
+
         </>
     )
 }

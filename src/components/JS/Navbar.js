@@ -1,14 +1,22 @@
-import React  from "react";
-import Provinces from "./Provinces";
 
+import React, { useState, useEffect } from 'react';
+import "../CSS/navbarstyle.css" ;
 import logo2 from "../images/logo2.png"; 
 import {Link} from "react-router-dom" ; 
 function Navbar (){
+
+    const [click, setClick] = useState(false);
+    const handleClick = () => setClick(!click);
     return(
         <>
         <div className ="navbar">
-        {/* <a href="#" class="logo">Der Leng</a> */}
-        <Link to = "/" className="logo" >Der Leng</Link>
+
+        <Link to = "/" className="logo" onClick={handleClick} >
+            Der Leng
+            <i class="fa-regular fa-island-tropical"></i>
+            
+        </Link>
+           
 
         <form className="search">
             <input className="form-control me-4"  type="search" placeholder="Search"  aria-label="Search"/>
@@ -20,23 +28,23 @@ function Navbar (){
                 <li><a href="#" class="cta">Sign up</a></li>
             </ul>
         </nav>
+
         </div>
+
+        
         <div className ="menu">
         <nav>
             <ul className="menu-botton" >
                 <li className="dropdown">
                     <a className="drop" href="#">All Province</a>
                     <div class="dropdown-content">
-                        {/* <a  href="#">Kampot</a>
-                        <a href="#">Siem Reap</a>
-                        <a href="#">Kep</a> */}
-                        <Link to ="/provinces/kampot">Kampot</Link>
-                        <Link to ="/provinces/sihanoukville">Sihanoukville</Link>
-                        <Link to ="/provinces/kohkong">Koh Kong</Link>
-                        <Link to ="/provinces/mondulkiri">Mondulkiri</Link>
-                        <Link to ="/provinces/siemreap">Siem Reap</Link>
-                        
 
+                        <Link to ="/provinces/kampot" onClick={handleClick}>Kampot</Link>
+                        <Link to ="/provinces/sihanoukville" onClick={handleClick}>Sihanoukville</Link>
+                        <Link to ="/provinces/kohkong" onClick={handleClick}>Koh Kong</Link>
+                        <Link to ="/provinces/mondulkiri" onClick={handleClick}>Mondulkiri</Link>
+                        <Link to ="/provinces/siemreap" onClick={handleClick}>Siem Reap</Link>
+                        
                     </div>
                 </li>
                 <li className="dropdown">
@@ -60,6 +68,5 @@ function Navbar (){
         </div>
         </>   
     );
-
 }
 export default Navbar ; 

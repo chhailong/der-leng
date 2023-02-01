@@ -15,6 +15,7 @@ function Footer (){
             <p class="copyright">Travelling © 2023</p>
         </footer>
         </div>    
+  
         </>
 
     )
