@@ -1,71 +1,98 @@
 
 import React, { useState, useEffect } from 'react';
 import "../CSS/navbarstyle.css" ;
-import logo2 from "../images/logo2.png"; 
+import profile from "../images/profile.png"
+
 import {Link} from "react-router-dom" ; 
 function Navbar (){
 
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
+    const userLogin  = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null ;
+    const [userInfo , setUserInfo] = React.useState(userLogin) ;
+    console.log(userInfo);
+
+    function logout() {
+        // Remove the user information from local storage.
+        localStorage.removeItem("user");
+      
+        // Redirect the user to the login page.
+        window.location.href = "/login";
+      }
+
+      useEffect(()=>{
+
+      } , [Navbar])
+
     return(
         <>
-        <div className ="navbar">
-
-        <Link to = "/" className="logo" onClick={handleClick} >
-            Der Leng
-            <i class="fa-regular fa-island-tropical"></i>
+        <div className="navbar bg-light navbar-expand-md py-2 fixed-top">
+        <div className="container">
+            <Link to="/" className="navbar-brand text-danger fw-bold " >DERLENG</Link >
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+            </button>
             
-        </Link>
-           
+            <div className="collapse navbar-collapse flex-row justify-content-end" id="nav">
+        
+                <ui className=" navbar-nav">
+                    <li className='nav-item'>
+                        <Link to="/" className='nav-link '> Home</Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to ="/destination" className='nav-link '>Destination</Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to="#" className='nav-link '>Province</Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to="#" className='nav-link '>About</Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to="#" className='nav-link'>Contact</Link>
+                    </li>
 
-        <form className="search">
-            <input className="form-control me-4"  type="search" placeholder="Search"  aria-label="Search"/>
-        </form>
-        <nav >
-            <ul className="menu-above">
-                <li><a href="#">EN</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a href="#" class="cta">Sign up</a></li>
-            </ul>
-        </nav>
+                    {
+                        userInfo ? (
+                            <li className='nav-item'>
+                            <div class="dropdown">
+                             <a class=" dropdown-toggle" href="#"  data-bs-toggle="dropdown"style={{ marginRight:"50px"}} >
+                            
+                              <img src={profile} alt="" className=" rounded-circle" style={{width:"40px" , height:"50px" }} />
+ 
+                             </a>
+ 
+                             <ul class="dropdown-menu">
+                                 <h5 className="m-2">{userInfo.name}</h5>
+                                 <Link to ={`/dashboard`} className="nav-link  text-black" >Dashboard</Link>
+                                 <Link to ="#" className="nav-link  text-black" onClick={logout}  >Logout</Link>
+                                 {/* <Link><a class="dropdown-item" href="#"onClick={logout} >Logout</a></Link> */}
+                               
+                             </ul>
+                             </div>
+                                 
+                             </li>
 
+
+                        ):(
+                            <li className='nav-item'>
+                        <Link to="/login" className='nav-link'> <button className="btn btn-outline-danger btn-md px-4 ">Login</button></Link>
+                        </li>
+
+
+                        )
+                    }
+                    
+
+                </ui>
+               
+
+            </div>
         </div>
+        </div>
+
+
 
         
-        <div className ="menu">
-        <nav>
-            <ul className="menu-botton" >
-                <li className="dropdown">
-                    <a className="drop" href="#">All Province</a>
-                    <div class="dropdown-content">
-
-                        <Link to ="/provinces/kampot" onClick={handleClick}>Kampot</Link>
-                        <Link to ="/provinces/sihanoukville" onClick={handleClick}>Sihanoukville</Link>
-                        <Link to ="/provinces/kohkong" onClick={handleClick}>Koh Kong</Link>
-                        <Link to ="/provinces/mondulkiri" onClick={handleClick}>Mondulkiri</Link>
-                        <Link to ="/provinces/siemreap" onClick={handleClick}>Siem Reap</Link>
-                        
-                    </div>
-                </li>
-                <li className="dropdown">
-                    <a className="drop" href="#">All Resort</a>
-                    <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                </li>
-                <li className="dropdown">
-                    <a className="drop" href="#">All Destinations</a>
-                    <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        </div>
+      
         </>   
     );
 }

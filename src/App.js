@@ -1,25 +1,26 @@
 
 // import './App.css';
 import Navbar from "./components/JS/Navbar" ; 
-import Footer from './components/JS/Footer';
-
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import './components/CSS/footerstyle.css' ; 
-import './components/CSS/allprovinces.css' ; 
-import './components/CSS/province.css';
-import './components/CSS/allDestination.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/JS/Home';
+import Destination from "./components/JS/Destination";
+import Login from "./components/JS/Auth/Login";
+import Register from "./components/JS/Auth/Register";
+import Dashboard from "./components/JS/Admin/Dashboard";
+import PostPlace from "./components/JS/Admin/PostPlace";
+import EditPlace from "./components/JS/Admin/EditPlace";
+import PlaceDetails from "./components/JS/organs/PlaceDetails";
+import ViewPlace from "./components/JS/Admin/ViewPlace";
 
 
-import Home from './components/JS/Home'
-import Allprovinces from "./components/JS/allProvinces";
-import Kampot from './components/JS/provinces/Kampot';
-import Sihanoukville from './components/JS/provinces/Sihanoukville';
-import KohKong from './components/JS/provinces/Koh.Kong';
-import Mondulkiri from './components/JS/provinces/Mondulkiri';
-import SiemReap from './components/JS/provinces/Siem.Reap';
 
-import Bokor from "./components/JS/Destinations/Bokor";
+// css for bootstrap icon  
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+import Footer from "./components/JS/Footer";
 
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
 
@@ -32,30 +33,20 @@ function App() {
           <div className="Home">
             <Routes>
               <Route exact path="/" element ={<Home/>}> </Route>
+              <Route  path="/destination" element ={<Destination/>}> </Route>
+              <Route  path="/login" element ={<Login/>}></Route>
+              <Route  path="/register" element ={<Register/>}></Route>
+              <Route  path="/dashboard" element ={<Dashboard/>}></Route>
+              <Route  path="/dashboard/post-place" element ={<PostPlace/>}></Route>
+              <Route  path="/dashboard/edit-place/:id" element ={<EditPlace/>}></Route>
+              <Route  path="/dashboard/view-place/:id" element ={<ViewPlace/>}></Route>
+              <Route  path="/places-details/:id" element ={<PlaceDetails/>}></Route>
 
-              /allprovinces
-              <Route  path="/allprovinces" element ={<Allprovinces/>}></Route>
-              <Route  path="/provinces/kampot" element ={<Kampot/>}></Route>
-              <Route  path="/provinces/sihanoukville" element ={<Sihanoukville/>}></Route>
-              <Route  path="/provinces/kohkong" element ={<KohKong/>}></Route>
-              <Route  path="/provinces/mondulkiri" element ={<Mondulkiri/>}></Route>
-              <Route  path="/provinces/siemreap" element ={<SiemReap/>}> </Route>
-
-
-
-              <Route  path="/provinces/kampot/bokor" element ={<Bokor/>}> </Route>
-
-
-          
             </Routes>
           </div>
-
-
-          {/* <Footer/> */}
+          <Footer/>
 
         </div>
-        
-
       </Router>
     </>
    
